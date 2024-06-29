@@ -6,7 +6,7 @@
 
 你可以使用`ServerEvents.tags`事件来进行与标签有关的修改，需要注意的是你需要向其传入参数来设置其修改的类型，即：
 
-```
+```js
 ServerEvents.tags("标签类型", event => {
     // 脚本
 })
@@ -18,17 +18,17 @@ ServerEvents.tags("标签类型", event => {
 
 以下为标签事件支持的方法：
 
-| 方法                                          | 描述                  | 返回值        |
-| ------------------------------------------- | ------------------- | ---------- |
-| add(ResourceLocation 标签, String... 对象ID)    | 向给定标签中添加对象          | TagWrapper |
-| remove(ResourceLocation 标签, String... 对象ID) | 从给定标签中移除对象          | TagWrapper |
-| removeAll(ResourceLocation 标签)              | 移除给定标签中的所有对象        | TagWrapper |
-| removeAllTagsFrom(String... 对象ID)           | 移除包含给定对象的所有标签中的所有对象 | TagWrapper |
-| get(ResourceLocation 标签)                    | 获取标签中所有对象           | TagWrapper |
+| 方法                                            | 描述                                   | 返回值     |
+| ----------------------------------------------- | -------------------------------------- | ---------- |
+| add(ResourceLocation 标签, String... 对象ID)    | 向给定标签中添加对象                   | TagWrapper |
+| remove(ResourceLocation 标签, String... 对象ID) | 从给定标签中移除对象                   | TagWrapper |
+| removeAll(ResourceLocation 标签)                | 移除给定标签中的所有对象               | TagWrapper |
+| removeAllTagsFrom(String... 对象ID)             | 移除包含给定对象的所有标签中的所有对象 | TagWrapper |
+| get(ResourceLocation 标签)                      | 获取标签中所有对象                     | TagWrapper |
 
 ## 二、示例
 
-```
+```js
 // 监听标签事件
 ServerEvents.tags('item', event => {
   // 将 minecraft:diamond_ore 添加至 #forge:cobblestone
