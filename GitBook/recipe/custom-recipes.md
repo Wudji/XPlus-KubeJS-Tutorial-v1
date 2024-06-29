@@ -10,7 +10,7 @@ _**带有🔎符号的段落代表该段内容ProbeJS中有语言文档，或使
 
 ## 一、含NBT配方
 
-```
+```js
 event.shaped('minecraft:book', [
     'CCC',
     'WGL',
@@ -39,7 +39,7 @@ event.shaped('minecraft:book', [
 
 注意！KubeJS现已有机械动力的拓展mod，无需使用该方法修改！
 
-```
+```js
 event.custom({
     type: 'create:crushing',//指定合成方式为粉碎轮
     ingredients: [
@@ -75,7 +75,7 @@ event.custom({
 
 ### 2：为Extended Crafting添加配方
 
-```
+```js
 event.custom({
     type: 'extendedcrafting:shaped_table',
     tier: 4,
@@ -122,27 +122,27 @@ event.custom({
 
 ## 三、修改输入物品状态
 
-| **功能**                    | **函数格式**                                                      |
-| ------------------------- | ------------------------------------------------------------- |
+| **功能**                           | **函数格式**                                                                |
+| ---------------------------------- | --------------------------------------------------------------------------- |
 | 为输入物品减去耐久                 | .damageIngredient(IngredientFilter 要修改的物品, 整形减去的耐久值)          |
-| 替换输入物品(比如桶)               | .replaceIngredient(IngredientFilter 要替换的物品, ItemStack 替换的物品)  |
-| 保持输入物品不变                  | .keepIngredient(IngredientFilter 要保留的物品)                      |
-| 设定部分烧炼配方消耗时间              | .cookingTime(int 时间)                                          |
+| 替换输入物品(比如桶)               | .replaceIngredient(IngredientFilter 要替换的物品, ItemStack 替换的物品)     |
+| 保持输入物品不变                   | .keepIngredient(IngredientFilter 要保留的物品)                              |
+| 设定部分烧炼配方消耗时间           | .cookingTime(int 时间)                                                      |
 | 自定义事件(Server StartUp脚本注册) | .customIngredientAction(IngredientFilter 要操作的物品, 字符串 自定义事件ID) |
 
 其中，IngredientFilter可以为：
 
-| **内容**    | **示例**                                                              |
-| --------- | ------------------------------------------------------------------- |
-| ItemStack | 'minecraft:dirt', Item.of('minecraft:diamond\_sword').ignoreNBT() 等 |
-| 合成输入索引    | 整形，如0，1，2......                                                     |
-| 对象        | {item: 'something', index: 0}                                       |
+| **内容**     | **示例**                                                             |
+| ------------ | -------------------------------------------------------------------- |
+| ItemStack    | 'minecraft:dirt', Item.of('minecraft:diamond\_sword').ignoreNBT() 等 |
+| 合成输入索引 | 整形，如0，1，2......                                                |
+| 对象         | {item: 'something', index: 0}                                        |
 
 ⚠1.19.2的KubeJS将原版的合成和它自己引入的，支持各种操作的合成逻辑分开了。比如，使用`event.recipes.minecraft.crafting_shaped`添加的配方将**无法使用**`.keepIngredient`、`.damageIngredient`来进行特殊合成的设置。要使其正常工作，你需要使用形如`event.recipes.kubejs.shaped`的语句添加修改。
 
 ### 1、修改输入物品状态
 
-```
+```js
 ServerEvents.recipes(event => {
     //用钻石剑切西瓜
       event.shapeless('9x minecraft:melon_slice', [ //无序合成，合成输出: 9个西瓜片
@@ -183,7 +183,7 @@ ServerEvents.recipes(event => {
 
 `kubejs\startup_scripts\CustomIngredientAction.js`
 
-```
+```js
 Ingredient.registerCustomIngredientAction("apply_enchantment", (itemstack, index, inventory) => {
       let enchantment = inventory.get(inventory.find(Item.of("minecraft:enchanted_book"))).nbt;
       if (itemstack.nbt == null)
@@ -206,23 +206,23 @@ ServerEvents.recipes(event => {
 
 相较于输入物品修改，输出物品的修改较为简单。
 
-| 功能       | 表述                                                   |
-| -------- | ---------------------------------------------------- |
+| 功能             | 表述                                                           |
+| ---------------- | -------------------------------------------------------------- |
 | 修改输出物品状态 | .modifyResult(ModifyRecipeResultCallback 输出物品修改回调函数) |
 
 🔎其中，`ModifyRecipeResultCallback`具有两个参数`ModifyRecipeCraftingGrid` 和 `ItemStack`，其中前者支持以下方法：
 
-| 表述                                | 功能        | 返回值           |
-| --------------------------------- | --------- | ------------- |
-| .player()                         | 获取合成物品的玩家 | Player        |
-| .find(ingredient 寻找物品, int 跳过的数字) | 获取符合条件的物品 | ItemStack     |
-| ...                               | ...       | 详见ProbeJS生成文档 |
+| 表述                                       | 功能               | 返回值              |
+| ------------------------------------------ | ------------------ | ------------------- |
+| .player()                                  | 获取合成物品的玩家 | Player              |
+| .find(ingredient 寻找物品, int 跳过的数字) | 获取符合条件的物品 | ItemStack           |
+| ...                                        | ...                | 详见ProbeJS生成文档 |
 
 需要注意的是，`ModifyRecipeResultCallback`需要一个返回值，即经过修改的输出物品
 
 下面给出一个基础例子：使用红石粉无序合成红石火把，如果用户名是`Wudji_NotFound`，就为这个火把附魔击退 X。
 
-```
+```js
 ServerEvents.recipes(event => {
 	event.shapeless('minecraft:redstone_torch','minecraft:redstone').modifyResult(function(inventory,itemStack){
 		if(inventory.getPlayer().getUsername() == "Wudji_NotFound"){ // 判断用户名
