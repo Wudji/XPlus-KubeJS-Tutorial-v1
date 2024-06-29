@@ -10,7 +10,7 @@
 
 `BlockBuilder`下的`noItem()`方法可以使KubeJS不再注册种子物品
 
-```
+```js
 StartupEvents.registry('block', event => {
 	// 自动注册对应种子，ID为example_crop_seed
     event.create("example_crop","crop");
@@ -19,25 +19,24 @@ StartupEvents.registry('block', event => {
 
 ## 二、CropBlockBuilder
 
-| 方法                                       | 描述       | 对应属性默认值 |
-| ---------------------------------------- | -------- | ------- |
-| age(int 生长时间)                            | 设置生长时间   | 7       |
-| crop(Object 产出物品)                        | 额外添加掉落物品 | -       |
-| crop(Object 产出物品,double 概率)              | 额外添加掉落物品 | -       |
-| dropSeed(布尔值 是否掉落种子)                     | 设置掉落种子   | true    |
-| bonemeal(ToIntFunction 使用骨粉回调函数)         | 设置使用骨粉事件 | null    |
-| survive(SurviveCallback surviveCallback) | 设置生长条件事件 | null    |
-| growTick(ToDoubleFunction 生长速度回调函数)      | 随机刻选中事件  | null    |
+| 方法                                        | 描述             | 对应属性默认值 |
+| ------------------------------------------- | ---------------- | -------------- |
+| age(int 生长时间)                           | 设置生长时间     | 7              |
+| crop(Object 产出物品)                       | 额外添加掉落物品 | -              |
+| crop(Object 产出物品,double 概率)           | 额外添加掉落物品 | -              |
+| dropSeed(布尔值 是否掉落种子)               | 设置掉落种子     | true           |
+| bonemeal(ToIntFunction 使用骨粉回调函数)    | 设置使用骨粉事件 | null           |
+| survive(SurviveCallback surviveCallback)    | 设置生长条件事件 | null           |
+| growTick(ToDoubleFunction 生长速度回调函数) | 随机刻选中事件   | null           |
 
 值得注意的是，`BlockBuilder`中的`randomTick(RandomTickCallbackJS 随机刻回调函数)`在`CropBlockBuilder`中被override了，你需要使用growTick方法替代它。
 
 ## 三、示例
 
-```
+```js
 StartupEvents.registry('block', event => {
     // ^(*￣(oo)￣)^ 作物
-    event
-        .create("pig_plant","crop")
+    event.create("pig_plant","crop")
         .age(3)// 从 0 开始
         .crop(Item.of("minecraft:porkchop").withCount(2),0.3)
         .crop(Item.of("minecraft:porkchop"))

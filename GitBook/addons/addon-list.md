@@ -7,7 +7,7 @@ This page is currently under construction and does not yet cover all aspects or 
 在本节内，我们将介绍部分常用附属模组。
 
 | 模组名称 | 作者 | 链接 |
-| ---- | -- | -- |
-|      |    |    |
-|      |    |    |
-|      |    |    |
+| -------- | ---- | ---- |
+|          |      |      |
+|          |      |      |
+|          |      |      |

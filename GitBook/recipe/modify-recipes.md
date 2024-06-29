@@ -10,7 +10,7 @@ _**带有🔎符号的段落代表该段内容ProbeJS中有语言文档，或使
 
 要修改配方，你需要在`ServerEvents.recipes`事件下注册一个“事件监听器”，并在该事件下完成所有修改，例如：
 
-```
+```js
 ServerEvents.recipes(event => {
   // 该部分为回调函数
   // 本节中的示例脚本将只包括此部分内容
@@ -20,12 +20,12 @@ ServerEvents.recipes(event => {
 
 以下为配方事件支持的部分方法：
 
-| 方法                                                                     | 描述                             | 返回值  |
-| ---------------------------------------------------------------------- | ------------------------------ | ---- |
-| forEachRecipe(RecipeFilter 过滤器, Consumer consumer)                     | 对所有满足过滤器的配方进行修改                | void |
-| countRecipes(RecipeFilter 过滤器)                                         | 返回满足过滤器的配方个数                   | 整形   |
-| containsRecipe(RecipeFilter 过滤器)                                       | 返回是否存在满足给定过滤器的配方               | 布尔值  |
-| remove(RecipeFilter 过滤器)                                               | 移除满足给定过滤器的配方，并返回移除个数           | 整形   |
+| 方法                                                                               | 描述                                                         | 返回值 |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------ |
+| forEachRecipe(RecipeFilter 过滤器, Consumer consumer)                              | 对所有满足过滤器的配方进行修改                               | void   |
+| countRecipes(RecipeFilter 过滤器)                                                  | 返回满足过滤器的配方个数                                     | 整形   |
+| containsRecipe(RecipeFilter 过滤器)                                                | 返回是否存在满足给定过滤器的配方                             | 布尔值 |
+| remove(RecipeFilter 过滤器)                                                        | 移除满足给定过滤器的配方，并返回移除个数                     | 整形   |
 | replaceInput(RecipeFilter 过滤器, IngredientMatch 被替换物品, Ingredient 替换物品) | 对所有满足过滤器的配方进行修改：替换输入物品，并返回操作个数 | 整形   |
 | replaceOutput(RecipeFilter 过滤器, IngredientMatch 被替换物品, ItemStack 替换物品) | 对所有满足过滤器的配方进行修改：替换输出物品，并返回操作个数 | 整形   |
 
@@ -33,7 +33,7 @@ ServerEvents.recipes(event => {
 
 🔎 `event.recipes`可以获取所有存在的配方类型(`DocumentedRecipes`)，其属性为命名空间。你可以通过这种情况修改所有支持的配方，例如：
 
-```
+```js
 ServerEvents.recipes(event => {
 	// 营火配方：红石烧烤得到红石火把
 	event.recipes.minecraft.campfire_cooking('minecraft:redstone_torch','minecraft:redstone')
@@ -48,7 +48,7 @@ ServerEvents.recipes(event => {
 
 例子：用 4个海绵 和 4个钻石 合成 3个石头
 
-```
+```js
 event.shaped(Item.of('minecraft:stone', 3), [
 		'LOL',
 		'O O',
@@ -76,7 +76,7 @@ event.shapeless(Item.of('minecraft:stone', 2), ['minecraft:stone', Ingredient.ma
 
 例子：苹果 + 金锭 -> 金苹果
 
-```
+```js
 event.smithing('minecraft:golden_apple', 'minecraft:apple', 'minecraft:gold_ingot')
 ```
 
@@ -86,7 +86,7 @@ event.smithing('minecraft:golden_apple', 'minecraft:apple', 'minecraft:gold_ingo
 
 例子：1个金苹果 经熔炉烧炼得到 32个胡萝卜
 
-```
+```js
 event.smelting('32x minecraft:carrot', 'minecraft:golden_apple')
 ```
 
@@ -108,7 +108,7 @@ event.smoking('minecraft:tinted_glass', 'minecraft:glass')
 
 例子：木棍经过营火烧炼得到火把
 
-```
+```js
 event.campfireCooking('minecraft:torch', 'minecraft:stick')
 ```
 
@@ -118,7 +118,7 @@ event.campfireCooking('minecraft:torch', 'minecraft:stick')
 
 例子：1个带有木板标签的物品合成3个木棍
 
-```
+```js
 event.stonecutting('3x minecraft:stick', '#minecraft:planks')
 ```
 
@@ -128,7 +128,7 @@ event.stonecutting('3x minecraft:stick', '#minecraft:planks')
 
 例子：金苹果经过高炉烧炼得到3个苹果
 
-```
+```js
 event.blasting('3x minecraft:apple', 'minecraft:golden_apple')
 ```
 
@@ -138,29 +138,29 @@ event.blasting('3x minecraft:apple', 'minecraft:golden_apple')
 
 配方过滤器可在配方修改或移除中用于匹配符合条件的配方，其包括以下类型
 
-| 写法                       | 描述       | 示例                                                                         |
-| ------------------------ | -------- | -------------------------------------------------------------------------- |
-| `{output:'物品'}`          | 匹配输出物品   | `{output: '#minecraft:wool'}`                                              |
-| `{input:'物品'}`           | 匹配输入物品   | `{input: '#forge:dusts/redstone'}`                                         |
-| `{mod:'模组ID'}`           | 匹配模组ID   | `{mod: 'kubejstutorial'}`                                                  |
-| `{recipe:'配方ID'}`        | 匹配配方ID   | `{mod: 'xplusmodpack'}`                                                    |
-| `{type: '配方类型'}`         | 匹配配方类型   | `{type: 'minecraft:campfire_cooking'}`                                     |
+| 写法                           | 描述             | 示例                                                                       |
+| ------------------------------ | ---------------- | -------------------------------------------------------------------------- |
+| `{output:'物品'}`              | 匹配输出物品     | `{output: '#minecraft:wool'}`                                              |
+| `{input:'物品'}`               | 匹配输入物品     | `{input: '#forge:dusts/redstone'}`                                         |
+| `{mod:'模组ID'}`               | 匹配模组ID       | `{mod: 'kubejstutorial'}`                                                  |
+| `{recipe:'配方ID'}`            | 匹配配方ID       | `{mod: 'xplusmodpack'}`                                                    |
+| `{type: '配方类型'}`           | 匹配配方类型     | `{type: 'minecraft:campfire_cooking'}`                                     |
 | `{条件1:"值",条件2:"值"}`      | 组合过滤器（与） | `{output: 'minecraft:cooked_chicken', type: 'minecraft:campfire_cooking'}` |
 | `[{条件1:"值"}, {条件2:"值"}]` | 组合过滤器（或） | `[{type:'minecraft:smelting'}, {type:'minecraft:blasting'}]`               |
-| `{not:{条件:"值"}}`         | 组合过滤器（非） | `{not:{type:"minecraft:smelting"}}`                                        |
+| `{not:{条件:"值"}}`            | 组合过滤器（非） | `{not:{type:"minecraft:smelting"}}`                                        |
 
 上表中组合过滤器依旧可以多层叠加，从而实现更复杂的条件判断，详见下方示例。
 
 ### 2、配方修改
 
-| 语句                                      | 描述     |
-| --------------------------------------- | ------ |
+| 语句                                                  | 描述         |
+| ----------------------------------------------------- | ------------ |
 | event.replaceInput(配方过滤器, 被替换物品, 替换物品)  | 修改输入物品 |
 | event.replaceOutput(配方过滤器, 被替换物品, 替换物品) | 修改输出物品 |
 
 例子：在输出物品为minecraft:ladder的配方中，将输入物品中的木棍替换为树苗
 
-```
+```js
 event.replaceInput(
     { output: 'minecraft:ladder' }, // 物品过滤器（匹配输出物品）
     'minecraft:stick', // 被替换物品
@@ -171,13 +171,13 @@ event.replaceInput(
 
 例子：在所有配方中，将输出物品中的minecraft:stick替换为minecraft:oak\_sapling
 
-```
+```js
 event.replaceOutput({}, 'minecraft:stick', 'minecraft:oak_sapling') // 物品过滤器留空
 ```
 
 例子：在所有无序配方中，将minecraft:iron\_nugget替换为minecraft:gold\_nugget
 
-```
+```js
 event.replaceInput({type: 'minecraft:crafting_shapeless'}, 'minecraft:iron_nugget', 'minecraft:gold_nugget')
 ```
 
@@ -185,7 +185,7 @@ event.replaceInput({type: 'minecraft:crafting_shapeless'}, 'minecraft:iron_nugge
 
 语句：`event.remove()`
 
-```
+```js
 // 物品过滤器例子 + 配方移除例子
 // 移除所有配方:
 event.remove({}) 
@@ -218,6 +218,6 @@ mc中所有的配方都有一个随机的ID，但以下配方被指定了一个�
 
 你可以通过JEI/REI来便捷地查询配方的ID。
 
-```
+```js
 event.smelting('minecraft:golden_apple', 'minecraft:carrot').id('wudjimodpack:wudji_first_recipe_id')
 ```

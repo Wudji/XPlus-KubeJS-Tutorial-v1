@@ -10,12 +10,12 @@
 
 `WorldgenEvents`事件组可于世界相关修改，其包含`WorldgenEvents.add`和`WorldgenEvents.remove`两个事件：
 
-```
-WorldgenEvents.add(event=>{
+```js
+WorldgenEvents.add(event => {
     // code here
 })
 
-WorldgenEvents.remove(event=>{
+WorldgenEvents.remove(event => {
     // code here
 })
 ```
@@ -24,37 +24,37 @@ WorldgenEvents.remove(event=>{
 
 `WorldgenEvents.add`：
 
-| 方法                                                                    | 描述                      |
-| --------------------------------------------------------------------- | ----------------------- |
-| addLake(Consumer 湖)                                                   | 在世界生成中添加湖               |
-| addOre(Consumer 矿石)                                                   | 在世界生成中添加湖               |
-| getAnchors()                                                          | 获取高度锚（`VerticalAnchor`） |
-| addSpawn(BiomeFilter 群系过滤器, MobCategory 生成类型, 字符串 怪物)                 | 添加怪物生成                  |
-| addSpawn(MobCategory 生成类型, 字符串 怪物)                                    | 添加怪物生成                  |
-| addSpawn(Consumer 属性)                                                 | 添加怪物生成                  |
-| addFeatureJson(BiomeFilter 群系过滤器, JsonObject 结构)                      | 添加结构                    |
-| addFeatureJson(BiomeFilter 群系过滤器, ResourceLocation ID, JsonObject 结构) | 添加结构                    |
+| 方法                                                                         | 描述                           |
+| ---------------------------------------------------------------------------- | ------------------------------ |
+| addLake(Consumer 湖)                                                         | 在世界生成中添加湖             |
+| addOre(Consumer 矿石)                                                        | 在世界生成中添加湖             |
+| getAnchors()                                                                 | 获取高度锚（`VerticalAnchor`） |
+| addSpawn(BiomeFilter 群系过滤器, MobCategory 生成类型, 字符串 怪物)          | 添加怪物生成                   |
+| addSpawn(MobCategory 生成类型, 字符串 怪物)                                  | 添加怪物生成                   |
+| addSpawn(Consumer 属性)                                                      | 添加怪物生成                   |
+| addFeatureJson(BiomeFilter 群系过滤器, JsonObject 结构)                      | 添加结构                       |
+| addFeatureJson(BiomeFilter 群系过滤器, ResourceLocation ID, JsonObject 结构) | 添加结构                       |
 
 `WorldgenEvents.remove`
 
-| 方法                                                                                            | 描述            |
-| --------------------------------------------------------------------------------------------- | ------------- |
-| removeSpawns(Consumer 移除生成)                                                                   | 移除怪物生成        |
-| removeAllFeatures(BiomeFilter 群系过滤器)                                                          | 移除所有符合条件的结构   |
-| printSpawns(MobCategory 生成类型)                                                                 | 打印所有符合条件的怪物生成 |
-| printFeatures(DecorationGenerationStep 生成阶段)                                                  | 打印所有符合条件的结构   |
-| printSpawns()                                                                                 | 打印所有怪物生成      |
-| removeFeatureById(BiomeFilter 群系过滤器, DecorationGenerationStep 生成阶段, ResourceLocation\[] 结构ID) | 根据ID移除结构      |
-| printFiltered(DecorationGenerationStep 生成阶段)                                                  | 打印符合条件的被过滤的结构 |
-| printFiltered(DecorationGenerationStep 生成阶段, BiomeFilter 群系过滤器)                               | 打印符合条件的被过滤的结构 |
-| printFeaturesForType(DecorationGenerationStep 生成阶段, BiomeFilter 群系过滤器, 布尔值 是否待移除后)            | 打印指定类型的结构     |
-| removeAllFeatures()                                                                           | 移除所有结构        |
-| removeAllFeatures(BiomeFilter 群系过滤器, DecorationGenerationStep 生成阶段)                           | 移除所有符合条件的结构   |
-| removeAllSpawns()                                                                             | 移除所有怪物生成      |
-| removeFeatureById(DecorationGenerationStep 生成阶段, ResourceLocation\[] 结构ID)                    | 根据ID移除结构      |
-| removeOres(Consumer 移除生成)                                                                     | 移除所有符合条件的矿石   |
-| printFeatures()                                                                               | 打印所有结构        |
-| printFeatures(DecorationGenerationStep 生成阶段, BiomeFilter 群系过滤器)                               | 打印所有符合条件的结构   |
+| 方法                                                                                                     | 描述                       |
+| -------------------------------------------------------------------------------------------------------- | -------------------------- |
+| removeSpawns(Consumer 移除生成)                                                                          | 移除怪物生成               |
+| removeAllFeatures(BiomeFilter 群系过滤器)                                                                | 移除所有符合条件的结构     |
+| printSpawns(MobCategory 生成类型)                                                                        | 打印所有符合条件的怪物生成 |
+| printFeatures(DecorationGenerationStep 生成阶段)                                                         | 打印所有符合条件的结构     |
+| printSpawns()                                                                                            | 打印所有怪物生成           |
+| removeFeatureById(BiomeFilter 群系过滤器, DecorationGenerationStep 生成阶段, ResourceLocation\[] 结构ID) | 根据ID移除结构             |
+| printFiltered(DecorationGenerationStep 生成阶段)                                                         | 打印符合条件的被过滤的结构 |
+| printFiltered(DecorationGenerationStep 生成阶段, BiomeFilter 群系过滤器)                                 | 打印符合条件的被过滤的结构 |
+| printFeaturesForType(DecorationGenerationStep 生成阶段, BiomeFilter 群系过滤器, 布尔值 是否待移除后)     | 打印指定类型的结构         |
+| removeAllFeatures()                                                                                      | 移除所有结构               |
+| removeAllFeatures(BiomeFilter 群系过滤器, DecorationGenerationStep 生成阶段)                             | 移除所有符合条件的结构     |
+| removeAllSpawns()                                                                                        | 移除所有怪物生成           |
+| removeFeatureById(DecorationGenerationStep 生成阶段, ResourceLocation\[] 结构ID)                         | 根据ID移除结构             |
+| removeOres(Consumer 移除生成)                                                                            | 移除所有符合条件的矿石     |
+| printFeatures()                                                                                          | 打印所有结构               |
+| printFeatures(DecorationGenerationStep 生成阶段, BiomeFilter 群系过滤器)                                 | 打印所有符合条件的结构     |
 
 MobCatrgory支持以下值：
 
@@ -153,58 +153,58 @@ WorldgenEvents.add(event => {
 
 ### 1、`AddOreProperties`：矿石添加属性设置
 
-| 方法                                                     | 描述                   | 补充说明             |
-| ------------------------------------------------------ | -------------------- | ---------------- |
-| aboveBottom(整形 距离)                                     | 设置距离世界底部的高度          | -                |
-| size(s: any)                                           | 设置最大矿簇大小             | -                |
-| bottom()                                               | 设置生成在世界底部            | 注：未经测试           |
-| belowTop(整形 距离)                                        | 设置距离世界顶部的高度          |                  |
-| count(整形 数字)                                           | 设置矿簇数量               | 接受单个数字           |
-| addTarget(RuleTest 规则测试, BlockStatePredicate 目标状态)     | 添加目标方块               | 使用方法见下           |
-| squared()                                              | 设置为方形布局              | -                |
-| triangleHeight(整形 最小值, 整形 最大值)                         | 设置traingleHeight生成类型 | 见`高度提供器`         |
-| triangleHeight(垂直锚 位置1, 垂直锚 位置2)                       | 设置traingleHeight生成类型 | 见`高度提供器`         |
-| top()                                                  | 设置生成在世界顶部            | 注：未经测试           |
-| count(IntProvider 整形提供器)                               | 设置矿簇数量               | 接受区间（形如\[15,20]） |
-| count(整形 最小值, 整形 最大值)                                  | 设置矿簇数量范围             | -                |
-| chance(c: any)                                         | 设置生成几率               | 默认为0，详细信息见示例脚本   |
-| uniformHeight(垂直锚 位置1, 垂直锚 位置2)                        | 设置uniformHeight生成类型  | 见`高度提供器`         |
-| uniformHeight(整形 最小值, 整形 最大值)                          | 设置uniformHeight生成类型  | 见`高度提供器`         |
-| 属性 "height": HeightRangePlacement                      | 设置生成高度范围             | 见`高度提供器`         |
-| 属性 "retrogen"                                          | 是否在已生成区块中重复生成        | -                |
-| 属性 "count": IntProvider                                | 设置矿簇数量               | -                |
-| 属性 "worldgenLayer": DecorationGenerationStep           | 设置所属生成步骤             | -                |
-| 属性 "chance": any                                       | 设置几率                 | 默认为0，详细信息见示例脚本   |
-| 属性 "squared": 布尔值                                      | 设置为平方形布局             | -                |
-| 属性 "noSurface": 浮点型                                    | 设置暴露于空气中的概率          | 0\~1             |
-| 属性 "biomes": BiomeFilter                               | 设置群系过滤器              | -                |
-| 属性 "size": any                                         | 设置矿簇最大大小             | -                |
-| 属性 "id": ResourceLocation                              | 设置ID                 | -                |
-| 属性 "targets": List\<OreConfiguration$TargetBlockState> | 设置目标列表               | -                |
+| 方法                                                       | 描述                       | 补充说明                    |
+| ---------------------------------------------------------- | -------------------------- | --------------------------- |
+| aboveBottom(整形 距离)                                     | 设置距离世界底部的高度     | -                           |
+| size(s: any)                                               | 设置最大矿簇大小           | -                           |
+| bottom()                                                   | 设置生成在世界底部         | 注：未经测试                |
+| belowTop(整形 距离)                                        | 设置距离世界顶部的高度     |                             |
+| count(整形 数字)                                           | 设置矿簇数量               | 接受单个数字                |
+| addTarget(RuleTest 规则测试, BlockStatePredicate 目标状态) | 添加目标方块               | 使用方法见下                |
+| squared()                                                  | 设置为方形布局             | -                           |
+| triangleHeight(整形 最小值, 整形 最大值)                   | 设置traingleHeight生成类型 | 见`高度提供器`              |
+| triangleHeight(垂直锚 位置1, 垂直锚 位置2)                 | 设置traingleHeight生成类型 | 见`高度提供器`              |
+| top()                                                      | 设置生成在世界顶部         | 注：未经测试                |
+| count(IntProvider 整形提供器)                              | 设置矿簇数量               | 接受区间（形如\[15,20]）    |
+| count(整形 最小值, 整形 最大值)                            | 设置矿簇数量范围           | -                           |
+| chance(c: any)                                             | 设置生成几率               | 默认为0，详细信息见示例脚本 |
+| uniformHeight(垂直锚 位置1, 垂直锚 位置2)                  | 设置uniformHeight生成类型  | 见`高度提供器`              |
+| uniformHeight(整形 最小值, 整形 最大值)                    | 设置uniformHeight生成类型  | 见`高度提供器`              |
+| 属性 "height": HeightRangePlacement                        | 设置生成高度范围           | 见`高度提供器`              |
+| 属性 "retrogen"                                            | 是否在已生成区块中重复生成 | -                           |
+| 属性 "count": IntProvider                                  | 设置矿簇数量               | -                           |
+| 属性 "worldgenLayer": DecorationGenerationStep             | 设置所属生成步骤           | -                           |
+| 属性 "chance": any                                         | 设置几率                   | 默认为0，详细信息见示例脚本 |
+| 属性 "squared": 布尔值                                     | 设置为平方形布局           | -                           |
+| 属性 "noSurface": 浮点型                                   | 设置暴露于空气中的概率     | 0\~1                        |
+| 属性 "biomes": BiomeFilter                                 | 设置群系过滤器             | -                           |
+| 属性 "size": any                                           | 设置矿簇最大大小           | -                           |
+| 属性 "id": ResourceLocation                                | 设置ID                     | -                           |
+| 属性 "targets": List\<OreConfiguration$TargetBlockState>   | 设置目标列表               | -                           |
 
 ### 2、`AddSpawnProperties`：实体添加属性设置
 
-| 方法                                | 描述                  |
-| --------------------------------- | ------------------- |
-| setEntity(s: string)              | 设置实体ID              |
-| setCategory(s: string)            | 设置实体类别（MobCatrgory） |
+| 方法                                | 描述                        |
+| ----------------------------------- | --------------------------- |
+| setEntity(s: string)                | 设置实体ID                  |
+| setCategory(s: string)              | 设置实体类别（MobCatrgory） |
 | 属性 "minCount": any                | 设置实体最小数量            |
-| 属性 "biomes": Internal.BiomeFilter | 设置群系过滤器             |
-| 属性 "maxCount": any                | 设置最大数量              |
-| 属性 "weight": any                  | 设置生成权重              |
+| 属性 "biomes": Internal.BiomeFilter | 设置群系过滤器              |
+| 属性 "maxCount": any                | 设置最大数量                |
+| 属性 "weight": any                  | 设置生成权重                |
 
 ### 3、`RemoveOresProperties`：矿石移除属性
 
-| 方法                                           | 描述       |
-| -------------------------------------------- | -------- |
+| 方法                                           | 描述             |
+| ---------------------------------------------- | ---------------- |
 | 属性 "worldgenLayer": DecorationGenerationStep | 匹配所属生成步骤 |
-| 属性 "biomes": BiomeFilter                     | 匹配群系过滤器  |
+| 属性 "biomes": BiomeFilter                     | 匹配群系过滤器   |
 | 属性 "blocks": BlockStatePredicate             | 匹配方块状态谓词 |
 
 ### 4、`RemoveSpawnsProperties`：实体生成移除属性
 
-| 方法                       | 描述        |
-| ------------------------ | --------- |
+| 方法                       | 描述               |
+| -------------------------- | ------------------ |
 | 属性 "mobs": MobFilter     | 匹配生物实体过滤器 |
 | 属性 "biomes": BiomeFilter | 匹配生物群系过滤器 |
 

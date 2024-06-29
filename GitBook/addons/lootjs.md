@@ -28,7 +28,7 @@ _注：本节代码应置于`kubejs\server_scripts`文件夹下_
 
 要使用LootJS修改战利品表，你需要使用`LootJS.modifiers`事件。
 
-```
+```js
 LootJS.modifiers(event => {
     // code here
 });
@@ -42,7 +42,7 @@ LootJS.modifiers(event => {
 
 例如，以下为两个修改示例：
 
-```
+```js
 LootJS.modifiers((event) => {
     // 玩家使用忽略nbt的下界合金镐破坏带有#forge:ores标签的方块时，额外掉落一个砂砾。
     event
@@ -61,9 +61,9 @@ LootJS.modifiers((event) => {
 
 ## 四、战利品修饰器（Loot Modifier）
 
-| **函数**                          | **功能**               |
-| ------------------------------- | -------------------- |
-| addBlockLootModifier(...方块ID)   | 为方块添加新的战利品表修饰器       |
-| addEntityLootModifier(...实体ID)  | 为实体添加新的战利品表修饰器       |
-| addLootTableModifier(...命名空间ID) | 为给定战利品表添加新的修饰器       |
+| **函数**                            | **功能**                             |
+| ----------------------------------- | ------------------------------------ |
+| addBlockLootModifier(...方块ID)     | 为方块添加新的战利品表修饰器         |
+| addEntityLootModifier(...实体ID)    | 为实体添加新的战利品表修饰器         |
+| addLootTableModifier(...命名空间ID) | 为给定战利品表添加新的修饰器         |
 | addLootTypeModifier(...战利品表ID)  | 为给定战利品表类型\[1]添加新的修饰器 |

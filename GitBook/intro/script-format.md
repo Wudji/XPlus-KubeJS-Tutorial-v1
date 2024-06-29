@@ -12,7 +12,7 @@
 
 以监听方块右键事件为例：
 
-```
+```js
 // 1.19（KubeJS 6）
 
 BlockEvents.rightClicked(event => {
@@ -32,7 +32,7 @@ onEvent('block.right_click', event => {
 
 此外，新的事件监听格式还支持通过传入参数设置事件ID，如`事件组.事件名称(para, event => {})`
 
-```
+```js
 // 1.19（KubeJS 6）
 
 BlockEvents.rightClicked('minecraft:dirt', event => {// 'minecraft:dirt'为参数，该事件在右键点击泥土方块时触发
@@ -56,7 +56,7 @@ onEvent('block.right_click', event => {
 
 一些事件_必须_填写ID：
 
-```
+```js
 StartupEvents.register('item', event => {
   // 注册物品代码
 })
