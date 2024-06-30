@@ -1,11 +1,11 @@
 # Table of contents
 
 * [一、前言](README.md)
-  * [KubeJS 6 魔改教程更新日志](intro/changelog.md)
-  * [1.1 常用游戏内指令与ProbeJS使用](intro/probejs-and-commands.md)
-  * [1.2 文件结构和脚本类型](intro/file-structure.md)
-  * [1.3 脚本基础和格式变化](intro/script-format.md)
-  * [1.4 事件列表](intro/event-list.md)
+  * [KubeJS 6 魔改教程更新日志](readme/changelog.md)
+  * [1.1 常用游戏内指令与ProbeJS使用](readme/probejs-and-commands.md)
+  * [1.2 文件结构和脚本类型](readme/file-structure.md)
+  * [1.3 脚本基础和格式变化](readme/script-format.md)
+  * [1.4 事件列表](readme/event-list.md)
 
 ## 二、配方 <a href="#recipe" id="recipe"></a>
 
