@@ -2,6 +2,7 @@
 * **关于Blockbench**
   * Blockbench可以说是Minecraft界的建模神器了,你们所见到的奇奇怪怪的方块基本都是Blockbench做的,例如这个锻造台  
   ![锻造台](/GitBook/images/blockbench/smithing_table.png)
+  * **官网**:https://www.blockbench.net
 
   * **文件路径**
     * 模型文件往往存放于`assets/${modid}/models`
@@ -23,7 +24,7 @@
     * 我们先一顿操作猛如虎随便搞个模型出来  
   ![模型1](/GitBook/images/blockbench/model_1.png)
     * 随后我们保存模型,保存到上面所说的`assets/${modid}/models/block`  
-  ![保存](/GitBook/images/blockbench/save.png)
+  ![保存](/GitBook/images/blockbench/save.png)  
     **写代码...**
     ```js
 	StartupEvents.registry("block", (event) => {
@@ -33,9 +34,9 @@
 	```
 
     * **贴图**
-      * 这个时候如果注册进游戏显示的将会是下图...紫黑块,并且手上的模型和物品栏模型的方向看起来和别的方块很不一样  
+      * 这个时候如果注册进游戏显示的将会是下图...紫黑块,并且手上的模型和物品栏模型的方向以及大小看起来和别的方块很不一样...  
 	  ![模型1](/GitBook/images/blockbench/game/model_1.png)
-	  * 我们先来解决一下贴图的问题,我们将贴图放在上面提到的`assets/${modid}/textures/block`中,然后打开blockbench点击左下方的导入纹理(可以导入多个纹理)  
+	  * 我们先来解决一下贴图的问题,我们将贴图放在上面提到的`assets/${modid}/textures/block`中,然后打开blockbench点击左下方的导入纹理(也可以导入多个纹理),或是自己创建一个纹理(这里不教)  
 	  ![图1](/GitBook/images/blockbench/textures/textures_1.png)
 	  ![图2](/GitBook/images/blockbench/textures/textures_2.png)
 	  * 导入纹理后我们还要给模型贴上贴图,有两种方式
