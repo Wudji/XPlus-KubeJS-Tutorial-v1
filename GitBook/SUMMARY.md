@@ -21,6 +21,7 @@
 * [6 特殊类型方块和物品](game-contents/special-blocks-and-items/README.md)
   * [6.1 作物方块和种子](game-contents/special-blocks-and-items/crops.md)
   * [6.2 食物注册](game-contents/special-blocks-and-items/food.md)
+  * [6.3 BlockBench入门教程](game-contents/special-blocks-and-items/blockbench.md)
 * [7 附魔添加](game-contents/enchantments.md)
 * [8 流体注册](game-contents/fluid.md)
 * [9.战利品表](game-contents/9.-zhan-li-pin-biao.md)
