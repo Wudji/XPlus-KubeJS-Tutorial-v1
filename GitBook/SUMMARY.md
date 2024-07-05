@@ -12,6 +12,7 @@
 * [2.1 物品的表示——ItemStack和Ingredient](recipe/itemstacks.md)
 * [2.2 配方的添加，修改和移除](recipe/modify-recipes.md)
 * [2.3 非标准配方修改](recipe/custom-recipes.md)
+* [2.4 配方ID](recipe/recipe-id.md)
 
 ## 三、内容修改 <a href="#game-contents" id="game-contents"></a>
 
