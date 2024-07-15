@@ -12,7 +12,7 @@
   * 和`textures`文件夹一样,`models`文件夹内一般分为`block`和`item`两个文件夹
   * 取决于你做的模型类型如果是方块就放入`block`内,如果是物品就放入`item`内
   * **保存时一定得是`json`格式的模型文件**
-  * 而贴图则是置于`assets/${modid}/textures`内,和上面一样,方块放`block`,物品放`item`
+  * 而贴图则是置于`assets/${modid}/textures`内,和上面一样,方块放`block`,物品放`item`,可以的话最好和模型一个`${modid}`
 
 #### 二、使用
 
@@ -32,8 +32,8 @@
 * 我们先一顿操作猛如虎随便搞个模型出来\
   ![model\_1.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880a718c275.png)
 * 随后我们保存模型,保存到上面所说的`assets/${modid}/models/block`\
-  ![model\_2.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880a73d7826.png)写代码...
-
+  ![model\_2.png](https://i1.mcobj.com/imgb/u18prz/20240705_66880a74056fb.png)\
+  写代码...\
 ```js
   StartupEvents.registry("block", (event) => {
   // 方块ID要和模型文件名一样
@@ -46,7 +46,7 @@
 * 这个时候如果注册进游戏显示的将会是下图...紫黑块,并且手上的模型和物品栏模型的方向以及大小看起来和别的方块很不一样...\
   ![model\_1.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c04a2482.png)
 * 我们先来解决一下贴图的问题,我们将贴图放在上面提到的`assets/${modid}/textures/block`中,然后打开blockbench点击左下方的导入纹理(也可以导入多个纹理),或是自己创建一个纹理(这里不教)\
-  ![textures\_1.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c452fc2b.png) ![textures\_2.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c453573a.png)
+  ![textures\_1.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c452fc2b.png)![textures\_2.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c453573a.png)\
 * 导入纹理后我们还要给模型贴上贴图,有两种方式
   * 第一种是直接将贴图给拖到模型上\
     ![textures\_3.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c454a2fd.png)
@@ -60,10 +60,10 @@
   * 一个模型一共有6个面,每个面都可以是不同的贴图,而每个模型都可以使用不同的贴图,还是一顿操作猛如虎我们把纹理都处理好后保存,然后启动游戏(如果开着游戏`F3+T`也可以)\
     ![model\_2.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880a73d7826.png) **嘿咻嘿咻\~ 游戏启动中\~**
   * 如果你的贴图成功加载出来了那恭喜你成功了
-  * 现在!去楼下小卖部给自己买一根5块钱以上的雪糕好好犒劳一下自己 ![model\_2.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c049782e.png)
+  * 现在!去楼下小卖部给自己买一根5块钱以上的雪糕好好犒劳一下自己\
+  * ![model\_2.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c049782e.png)
 * **物品栏模型**
-  * 不难看到我们物品栏中的和手上的模型看起来非常奇怪,这个也很简单,我们点开工作区右上角的显示调整,然后点击左上角的3条横,选择`默认方块/三个点/应用于所有槽位`,保存!
-  * (当然你也可以选择自己调整)\
+  * 不难看到我们物品栏中的和手上的模型看起来非常奇怪,这个也很简单,我们点开工作区右上角的显示调整,然后点击左上角的3条横,选择`默认方块/三个点/应用于所有槽位`,保存!(当然你也可以选择自己调整)\
     ![display\_1.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880a717fcb6.png) ![display\_2.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880a717f347.png)
   * 和刚才一样的步骤,`F3+T`重载一下 ![model\_3.png](https://i1.mcobj.com/imgb/u18prz/20240705\_66880c04a1ebd.png)
   * 可以看到物品栏中和手上的模型都和正常的方块一样了

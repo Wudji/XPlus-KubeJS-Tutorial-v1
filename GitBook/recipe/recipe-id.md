@@ -18,11 +18,11 @@
     * 在写配方时后面加上`.id`方法时如果填入了原配方的ID会将原配方直接覆盖
 
     ```js
-    Server.recipes((event)=>{
+    ServerEvents.recipes((event) => {
           event.recipes.kubejs.shaped("minecraft:furnace", [
             "AAA",
             "AAA",
-          "AAA"
+          	"AAA"
           ], {
             A: "#forge:ingots/iron"
         }).id("minecraft:furnace") // 注意这不是写输出,是写配方ID
@@ -32,14 +32,14 @@
     * 如果每个配方都写一个json会很麻烦且不好管理,所以同时也可以根据配方ID找到配方文件后直接复制里面的内容供`custom`使用,典型的例子就是
 
     ```js
-    Server.recipes((event)=>{
+    ServerEvents.recipes((event) => {
           event.custom({
       	    "type": "createmetallurgy:casting_in_table",
           	"ingredients": [
       		    { "fluid": "createmetallurgy:molten_gold", "amount": 90 },
       		    { "tag": "forge:plates" },
       	    ],
-      	    "results": [{ "item": "createmetallurgy:graphite_plate_mold", }],
+      	    "results": [{ "item": "createmetallurgy:graphite_plate_mold" }],
     	    "processingTime": 90
         })
     })
